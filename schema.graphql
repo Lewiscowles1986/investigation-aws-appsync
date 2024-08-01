@@ -1,0 +1,32 @@
+type Post {
+  userId: ID
+  id: ID
+  title: String
+  body: String
+  comments: [Comment]
+}
+
+type User {
+  id: ID
+  name: String
+  username: String
+  email: String
+}
+
+type Comment {
+  postId: ID
+  id: ID
+  name: String
+  email: String
+  body: String
+}
+
+type Query {
+  getPosts(userId: ID): [Post]
+  getUsers: [User]
+  getComments(postId: ID): [Comment]
+}
+
+schema {
+  query: Query
+}
